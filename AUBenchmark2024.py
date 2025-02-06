@@ -34,3 +34,7 @@ fig = px.scatter(filtered,
            hover_name='Utility')
 
 st.plotly_chart(fig)
+
+st.divider()
+st.caption("Data source: [Urban national Performance Report 2023-24: Urban Water Utilities](http://www.bom.gov.au/water/npr/)")
+st.caption("Developed by: [Ditiphatra (Hima) Chanarithichai](https://github.com/Kurohima17)")
