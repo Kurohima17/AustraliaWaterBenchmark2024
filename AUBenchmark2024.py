@@ -10,12 +10,15 @@ st.title('Australian Water Benchmark 2024')
 
 finance = pd.read_csv('data/finance.csv')
 
-## Placeholder for user sliders and dropdowns
+## User Selections
 
-x = 'Total income for the utility'
-y = 'Economic real rate of return: water supply'
+indicators = finance['Indicator Name'].unique()
+
+x = st.selectbox('Select x-axis indicator', indicators)
+y = st.selectbox('Select y-axis indicator', indicators)
 filters = [x,y]
-# Filter the dataframe
+
+## Data Processing
 filtered = finance[finance['Indicator Name'].isin(filters)]
 filtered = filtered.filter(items=['Area','Utility','Indicator Name','2023-2024']).reset_index(drop=True)
 filtered = filtered.pivot_table(index=['Area','Utility'], columns='Indicator Name', values='2023-2024').reset_index()
